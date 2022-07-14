@@ -1,0 +1,8 @@
+@font-face {
+    font-family: kitsune;
+    src: url('/loki.ttf');
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+}
