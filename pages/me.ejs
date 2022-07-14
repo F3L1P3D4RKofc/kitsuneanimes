@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/css.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/GJ2pDAd.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//www.google.com/recaptcha/api.js" async defer></script>
+    <title>KitsuneAnimes | <%= doc.username %>
+    </title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="font-family: kitsune;"> <img src="https://i.imgur.com/GJ2pDAd.png"
+                    style="border-radius: 15px; height: 40px; ">KitsuneAnimes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/me">
+                            <%= doc.username %>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            contatos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="https://www.instagram.com/luis._.felipin/">Instagram</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://twitter.com/F3L1P3D4RK">Twitter</a></li>
+                            <li><a class="dropdown-item" href="https://twitch.tv/f3l1p3d4rk">Twitch</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" action="/search?" method="post">
+                    <input class="form-control me-2" type="search" placeholder="Nome do anime" aria-label="Search"
+                        name="search">
+                    <button class="btn btn-outline-light" type="submit">Procurar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-md">
+        <div class="container-md text-center"
+            style="background-image: url('https://cdn.discordapp.com/attachments/931639691076333569/933163293814693908/32c425287f5a87a523632ef5ee4a9062.jpg'); max-width: 500px; height: 150px; margin-top: 15px; border-radius: 15px; image-orientation:from-image;">
+            <% if(doc.avatar===null) {%>
+                <img src="https://media.discordapp.net/attachments/915734811375710238/985305930314960907/unknown.png"
+                    class="img-thumbnail" style="height: 100px; border-radius: 30px; margin-top: 80px;">
+                <% } else { %>
+                    <img src="<%= doc.avatar %>" class="img-thumbnail"
+                        style="height: 100px; border-radius: 30px; margin-top: 80px;">
+                    <% } %>
+
+                        <h2 class="text-center" style="color: lavender;">
+                            <%= doc.username %>
+                        </h2>
+        </div>
+
+        <div class="container-md text-center"
+            style="max-width: 500px; height: 150px; margin-top: 85px; border-radius: 15px; image-orientation:from-image;">
+
+            <a class="btn btn-dark" href="/me/config" role="button">Configuração da conta</a> <a class="btn btn-danger" href="/logout" role="button">log out</a>
+
+        </div>
+   
+</body>
+
+</html>

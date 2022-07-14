@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/css.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/GJ2pDAd.png">
+    <title>KitsuneAnimes | Configurando perfil</title>
+    <script src="//www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body style="background-color: rgb(24, 24, 24);">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="font-family: kitsune;"> <img
+                        src="https://i.imgur.com/GJ2pDAd.png"
+                        style="border-radius: 15px; height: 40px; ">KitsuneAnimes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/me">
+                                <%= doc.username %>
+                            </a>
+                        </li>
+    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                contatos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="https://www.instagram.com/luis._.felipin/">Instagram</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://twitter.com/F3L1P3D4RK">Twitter</a></li>
+                                <li><a class="dropdown-item" href="https://twitch.tv/f3l1p3d4rk">Twitch</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" action="/search?" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Nome do anime" aria-label="Search" name="search">
+                        <button class="btn btn-outline-light" type="submit">Procurar</button>
+                      </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-md text-center" style="margin-top: 10%; background-color: rgb(248, 222, 187); max-width: 250px; border-radius: 15px;">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Alterar avatar
+                  </button>
+
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Alterar nome de usuário
+                  </button>
+
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    Alterar Senha
+                  </button>
+
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center">Por favor escolha o seu avatar.</h3>
+
+                            <form action="/me/config" method="post" name="uploader" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <input class="form-control form-control-sm" name="file" id="file" type="file">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" value="Upload" class="btn btn-primary">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Altere seu nome de usuário</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center">Por favor escolha o seu novo nome de usuário.</h3>
+
+                            <form action="/me/config" method="post" name="namee" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <input class="form-control form-control-sm" name="username" type="text">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Altere sua senha</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-center">Por favor escolha a sua nova senha.</h3>
+
+                        <form action="/me/config" method="post" name="pass" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Nova
+                                    senha</label>
+                                <input type="text" class="form-control" name="NewPwd" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Senha
+                                    anterior</label>
+                                <input type="text" class="form-control" name="pwd" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                                </br>
+                                <div class="g-recaptcha" data-theme="dark"
+                                    data-sitekey="6LeO_0kdAAAAAD7x0SL1PAzVEuu6PxRiCwvIRdiK">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+
+         <div class="container-md text-center">
+        <% if(err1) { %>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                    aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <div>
+                    Por favor selecione uma foto
+                </div>
+            </div>
+            <% } %>
+                <% if(err2) { %>
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                            aria-label="Warning:">
+                            <path
+                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg>
+                        <div>
+                            Por favor coloque um nome de usuário
+                        </div>
+                    </div>
+                    <% } %>
+                        <% if(err3) { %>
+                            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16"
+                                    role="img" aria-label="Warning:">
+                                    <path
+                                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg>
+                                <div>
+                                    nome de usuário já está sendo usado
+                                </div>
+                            </div>
+                            <% } %>
+                                <% if(err4) { %>
+                                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor"
+                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                            viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                            <path
+                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                        </svg>
+                                        <div>
+                                            Por favor escolha um nome diferente
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% if(err5) { %>
+                                            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="currentColor"
+                                                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                    viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                                    <path
+                                                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                </svg>
+                                                <div>
+                                                    Por favor coloque a nova senha ou a senha anterior
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                                <% if(err6) { %>
+                                                    <div class="alert alert-primary d-flex align-items-center"
+                                                        role="alert">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            fill="currentColor"
+                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                            viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                                            <path
+                                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                        </svg>
+                                                        <div>
+                                                            Por favor esolha uma senha diferente
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+                                                        <% if(err7) { %>
+                                                            <div class="alert alert-primary d-flex align-items-center"
+                                                                role="alert">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                    height="24" fill="currentColor"
+                                                                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                                    viewBox="0 0 16 16" role="img"
+                                                                    aria-label="Warning:">
+                                                                    <path
+                                                                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                                </svg>
+                                                                <div>
+                                                                    A senha anterior está incorreta
+                                                                </div>
+                                                            </div>
+                                                            <% } %>
+                                                                <% if(err8) { %>
+                                                                    <div class="alert alert-primary d-flex align-items-center"
+                                                                        role="alert">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="24" height="24" fill="currentColor"
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                                            viewBox="0 0 16 16" role="img"
+                                                                            aria-label="Warning:">
+                                                                            <path
+                                                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                                        </svg>
+                                                                        <div>
+                                                                            ReCaptcha inválido
+                                                                        </div>
+                                                                    </div>
+                                                                    <% } %>
+                                                                        <% if(err9) { %>
+                                                                            <div class="alert alert-primary d-flex align-items-center"
+                                                                                role="alert">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="24" height="24"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                                                    viewBox="0 0 16 16" role="img"
+                                                                                    aria-label="Warning:">
+                                                                                    <path
+                                                                                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                                                </svg>
+                                                                                <div>
+                                                                                    A nova senha deve ter de 9 a 20
+                                                                                    caractéres
+                                                                                </div>
+                                                                            </div>
+                                                                            <% } %>
+    </div>
+</body>
+</html>
