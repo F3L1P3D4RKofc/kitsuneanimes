@@ -1,10 +1,10 @@
 const express = require('express'),
     rec = require('express-recaptcha').RecaptchaV2,
-    recaptcha = new rec('6LeO_0kdAAAAAD7x0SL1PAzVEuu6PxRiCwvIRdiK', '6LeO_0kdAAAAAF-kjzOqcE_ZqJpftN_CJHaA-Mdc'),
+    recaptcha = new rec('seu_site_key', 'SEU_SITE_ID'),
     cookieParser = require('cookie-parser'),
     { connect } = require('mongoose'),
     { ImgurClient } = require('imgur'),
-    client = new ImgurClient({ clientId: '86afb01bcac3842' }),
+    client = new ImgurClient({ clientId: 'SEU_IMGUR_CLIENTID' }),
     busboy = require('connect-busboy'),
     http = require('http'),
     app = express(); 
@@ -38,7 +38,7 @@ app.get('/test', async(req, res) => {
 
 app.get('*', (req, res) => res.render('404'))
 
-connect('mongodb+srv://dbuser:1234@cluster0.n026m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+connect('SEU_LINK_DE_DATABASE_DO_MONGOOSE')
 app.listen(80, function () {
     console.log('site on');
 })
